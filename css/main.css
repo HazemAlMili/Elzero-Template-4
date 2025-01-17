@@ -1,0 +1,150 @@
+/* Start global rules */
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --subtitle-color: #777;
+    --section-backgruond: #ececec;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "cairo", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small Screen */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium Screen */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large Screen */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Start Special Title */
+.main-title {
+    margin: 0px auto 80px;
+    width: fit-content;
+    padding: 10px 20px;
+    position: relative;
+    border: 3px solid var(--main-color);
+    z-index: 1;
+    transition: var(--main-transition);
+    cursor: default;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.main-title:hover {
+    transition-delay: 0.5s;
+    color: white;
+    border: 3px solid white;
+}
+
+.main-title::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.main-title:hover::before {
+    animation: fill-left 0.5s linear forwards;
+    z-index: -1;
+}
+
+.main-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.main-title:hover::after {
+    animation: fill-right 0.5s linear 1 forwards;
+    z-index: -1;
+}
+
+@keyframes fill-left {
+    50% {
+        width: 10px;
+        height: 10px;
+        left: 0;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        left: 0;
+    }
+}
+
+@keyframes fill-right {
+    50% {
+        width: 10px;
+        height: 10px;
+        right: 0;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        right: 0;
+
+    }
+}
+
+/* End Special Title */
+
+/* End global rules  */

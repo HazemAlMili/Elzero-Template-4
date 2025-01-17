@@ -1,0 +1,73 @@
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --subtitle-color: #777;
+    --section-backgruond: #ececec;
+}
+
+.gallery {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    background-color: var(--section-backgruond);
+    position: relative;
+}
+
+.gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.gallery .gbox {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 12px 20px 0 rgba(0 0 0 /13%), 0 2px 4px 0 rgba(0 0 0 /12%);
+}
+
+.gallery .gbox .image {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .gbox .image::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.gallery .gbox .image:hover::before {
+    animation: flashing 0.7s;
+}
+
+@keyframes flashing {
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+
+.gallery .gbox img {
+    max-width: 100%;
+    transition: var(--main-transition);
+}
+
+.gallery .gbox .image:hover img {
+    transform: rotate(5deg) scale(1.1);
+}

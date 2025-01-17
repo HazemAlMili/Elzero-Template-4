@@ -1,0 +1,191 @@
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --subtitle-color: #777;
+    --section-backgruond: #ececec;
+}
+
+.landing {
+    position: relative;
+}
+
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+    z-index: -1;
+    transform: skewY(-5deg);
+    transform-origin: top left;
+}
+
+.landing .container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 120px;
+}
+
+.landing .container .text {
+    width: 40%;
+    padding-right: 30px;
+    flex: 1;
+}
+
+@media (max-width:991px) {
+    .landing .container .text {
+        width: 100%;
+    }
+}
+
+@media (max-width:767px) {
+    .landing .container .text {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+.landing .container .text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+    opacity: 0;
+    /* Start with invisible text */
+    transform: translateY(20px);
+    /* Start 20px below its final position */
+    animation: fadeInUp 1s ease-out forwards;
+    /* Apply animation */
+}
+
+.landing .container .text p {
+    font-size: 25px;
+    line-height: 1.8;
+    color: #787777;
+    margin: 5px 0 0;
+    max-width: 500px;
+    opacity: 0;
+    /* Start with invisible text */
+    transform: translateY(20px);
+    /* Start 20px below its final position */
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    /* Apply animation with delay */
+}
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .landing .container .text h1 {
+        font-size: 40px;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .landing .container .text p {
+        font-size: 28px;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .landing .container .text h1 {
+        width: 100%;
+    }
+
+    .landing .container .text p {
+        font-size: 18px;
+    }
+}
+
+
+.landing .container .image img {
+    width: 600px;
+    position: relative;
+    left: 50px;
+    top: -30px;
+    max-width: 100%;
+    transition: var(--main-transition);
+    animation: updown 2s linear infinite alternate;
+}
+
+@media (max-width:991px) {
+    .landing .container .image {
+        display: none;
+    }
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+.landing .container a {
+    position: absolute;
+    bottom: 50px;
+    transition: var(--main-transition);
+    color: var(--main-color);
+    font-size: 30px;
+    font-weight: bold;
+    animation-delay: 3s;
+    animation: down 1s infinite alternate;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0px);
+    }
+
+    20% {
+        transform: translateY(0px);
+    }
+
+    40% {
+        transform: translateY(0px);
+    }
+
+    60% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+.landing .container a i {
+    margin-left: 10px;
+    transition: var(--main-transition);
+}
+
+.landing .container a i:hover {
+    color: var(--main-color-alt);
+}

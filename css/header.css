@@ -1,0 +1,209 @@
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --subtitle-color: #777;
+    --section-backgruond: #ececec;
+}
+
+.header {
+    background-color: white;
+    position: relative;
+    box-shadow: 0 0 10px #ddd;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+
+.header .logo {
+    color: var(--main-color);
+    font-size: 26px;
+    font-weight: bold;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .header .logo {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+    }
+
+}
+
+.header .main-nav {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .header .main-nav {
+        margin: auto;
+    }
+}
+
+.header .main-nav>li:hover .mega-menu {
+    opacity: 1;
+    z-index: 1;
+    top: calc(100% + 1px);
+    transition: 0.5s;
+}
+
+.header .main-nav>li>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    position: relative;
+    color: black;
+    padding: 0 30px;
+    transition: var(--main-transition);
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .header .main-nav>li>a {
+        padding: 10px;
+        font-size: 13px;
+        height: 30px;
+
+    }
+}
+
+.header .main-nav>li>a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--main-color);
+    top: 0;
+    left: -100%;
+    overflow: hidden;
+    transition: var(--main-transition);
+
+}
+
+.header .main-nav>li>a:hover {
+    color: var(--main-color);
+    background-color: #fafafa;
+}
+
+.header .main-nav>li>a:hover::before {
+    left: 0;
+}
+
+/* Start MegaMenu */
+.header .container .mega-menu {
+    position: absolute;
+    padding: 25px;
+    top: calc(100% + 50px);
+    left: 0;
+    z-index: -1;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--main-color);
+    opacity: 0;
+    transition: top var(--main-color),
+        opacity var(--main-transition);
+
+}
+
+@media (min-width:992px) {
+    .header .container .mega-menu {
+        flex-wrap: nowrap;
+    }
+}
+
+.header .container .mega-menu .image {
+    width: 700px;
+    padding: 20px;
+    margin-right: 50px;
+}
+
+
+@media (max-width:991px) {
+    .header .container .mega-menu .image {
+        display: none;
+    }
+}
+
+.header .container .mega-menu .image img {
+    max-width: 100%;
+}
+
+.header .container .mega-menu .links {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+    padding: 10px;
+    min-width: 250px;
+}
+
+@media (max-width:767px) {
+    .header .container .mega-menu .links:first-of-type li:last-child {
+        border-bottom: 1px solid #e9e6e6;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width:767px) {
+    .header .container .mega-menu .links:last-of-type li:last-child {
+        border-bottom: 1px solid #e9e6e6;
+        padding-bottom: 15px;
+    }
+}
+
+.header .container .mega-menu .links li {
+    position: relative;
+}
+
+.header .container .mega-menu .links li:not(:last-child) {
+    border-bottom: 1px solid #e9e6e6;
+    padding-bottom: 15px;
+}
+
+.header .container .mega-menu .links li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0px;
+    height: 101%;
+    background-color: #fafafa;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+
+.header .container .mega-menu .links li:hover::before {
+    width: 100%;
+
+}
+
+.header .container .mega-menu .links a {
+    display: block;
+    padding: 15px;
+    color: var(--main-color);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: -20px;
+}
+
+/* End MegaMenu */
