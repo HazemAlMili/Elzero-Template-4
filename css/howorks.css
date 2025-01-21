@@ -63,12 +63,14 @@
 @media (max-width:992px) {
     .how .container .boxes .hbox {
         max-width: 100%;
+        margin-left: 0;
     }
 }
 
 @media (max-width:768px) {
     .how .container .boxes .hbox {
         max-width: 100%;
+        margin-left: 0;
     }
 }
 
